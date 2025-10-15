@@ -9,7 +9,10 @@
     </head>
     <body>
         <?php
-		    //completa
+		    
+            include_once __DIR__."/conectaBD.php";
+            $con = conectaBD(); 
+
         ?>
         <div id="layout">
             <!-- SECCIÓ 1 - Capçalera -->
@@ -51,7 +54,16 @@
                         Grau:
                         <select name="grau" id="graus">
                         <?php
-                            //completa
+                            $query="SELECT * from graus";
+                            $resultSet = pg_query($con.$query);
+                            $rows = pg_fetch_all($resultSet);
+                            foreach($rows as $row){
+
+                                //echo "<option value='".$row['id']."'>".$row['nom']."</option>";
+                        ?>
+                            <option value='<?$row['id']?>'><?$row['nom']?></option>;
+                        <?php            
+                            }
                         ?>
                         </select>
                         <p>Tria la menció que t'atreu més:<p>
