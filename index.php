@@ -11,6 +11,7 @@
     </head>
     <body>
         <?php
+        //echo "test"
 		include_once __DIR__ . "/connectaBD.php";  
 		$con = connectaBD();
 		$query_graus = "SELECT id,nom FROM graus";
